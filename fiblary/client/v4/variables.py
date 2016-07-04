@@ -22,7 +22,7 @@
 
 import logging
 
-from fiblary.client.v3 import base
+from fiblary.client.v4 import base
 from fiblary.common import exceptions
 
 # TODO(kstaniek): Handle predefined variables
@@ -36,7 +36,7 @@ class Controller(base.CommonController):
     def get(self, item_id):
         url = '{0}/{1}'.format(self.RESOURCE, item_id)
         item = self.http_client.get(url).json()
-        return self.model(**item)
+        return self.model(item)
 
     def delete(self, item_id):
         url = '{0}/{1}'.format(self.RESOURCE, item_id)
@@ -45,14 +45,15 @@ class Controller(base.CommonController):
 
     def set(self, name, value):
         data = {
-            'name': name,
             'value': value
         }
         try:
-            item = self.update(data)
+            url = "%s/%s" % (self.RESOURCE, name)
+            item = self.http_client.put(url, json=data)
+
             _logger.info('Variable set: {0}="{1}"'.format(name, value))
         except exceptions.HTTPNotFound:
             _logger.info('Variable created: {0}="{1}"'.format(name, value))
-            item = self.create(**data)
+            item = self.create(data)
 
-        return self.model(**item)
+        return self.model(item.json())

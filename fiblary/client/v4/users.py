@@ -20,7 +20,7 @@
 """
 
 
-from fiblary.client.v3 import base
+from fiblary.client.v4 import base
 
 
 class Controller(base.CommonController):

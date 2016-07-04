@@ -23,17 +23,17 @@ import logging
 import sys
 import threading
 
-from fiblary.client.v3 import devices
-from fiblary.client.v3 import events
-from fiblary.client.v3 import info
-from fiblary.client.v3 import login
-from fiblary.client.v3 import models
-from fiblary.client.v3 import rooms
-from fiblary.client.v3 import scenes
-from fiblary.client.v3 import sections
-from fiblary.client.v3 import users
-from fiblary.client.v3 import variables
-from fiblary.client.v3 import weather
+from fiblary.client.v4 import devices
+from fiblary.client.v4 import events
+from fiblary.client.v4 import info
+from fiblary.client.v4 import login
+from fiblary.client.v4 import models
+from fiblary.client.v4 import rooms
+from fiblary.client.v4 import scenes
+from fiblary.client.v4 import sections
+from fiblary.client.v4 import users
+from fiblary.client.v4 import variables
+from fiblary.client.v4 import weather
 
 from fiblary.common.event import EventHook
 from fiblary.common import exceptions
