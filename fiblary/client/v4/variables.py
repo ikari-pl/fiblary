@@ -19,7 +19,6 @@
  Home Center Variable Manager Implementation
 """
 
-
 import logging
 
 from fiblary.client.v4 import base
