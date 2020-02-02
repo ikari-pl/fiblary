@@ -146,7 +146,7 @@ class RESTApi(object):
                                             **kwargs)
         except (requests.exceptions.ConnectionError,
                 requests.exceptions.Timeout) as e:
-            raise exceptions.ConnectionError(e.message)
+            raise exceptions.ConnectionError(e)
 
         except Exception as e:
             raise e
