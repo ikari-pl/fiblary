@@ -66,7 +66,7 @@ class FakeResponse(requests.Response):
         self.status_code = status_code
 
         self.headers.update(headers)
-        self._content = json.dumps(data)
+        self._content = json.dumps(data).encode('utf-8')
 
 
 @mock.patch('fiblary.common.restapi.requests.Session')
