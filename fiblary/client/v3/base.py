@@ -158,7 +158,7 @@ class ReadOnlyController(MinimalController):
 
         # in case there is only one item
         items = items if isinstance(items, list) else [items]
-        return filterfalse(lambda i: i is None, map(self.model, items))
+        return filterfalse(lambda i: i is None, list(map(self.model, items)))
 
     def find(self, **kwargs):
         """Find single item with attributes matching ``**kwargs``.
